@@ -22,6 +22,9 @@ h1{
   width: 8em;
 }
 
+.select{
+  margin-left: 0.5rem;
+}
 select{
   margin-left: 0.5rem;
 }
@@ -29,4 +32,8 @@ select{
 .equals{
   font-weight: bold;
   font-size: 2rem;
+}
+button{
+  border-radius: 15%;
+  
 }

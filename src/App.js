@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import CurrencyItem from './components/CurrencyItem';
 const BASE_CURRENCY = 'cad'
-const CURRENCY_URL = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2024-10-21/v1/currencies/'
+const CURRENCY_URL = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2024-10-23/v1/currencies/'
 
 function App() {
   const [currencyList, setCurrencyList] = useState([])
@@ -11,6 +11,11 @@ function App() {
   const [exchangeRate, setExchangeRate] = useState()
   const [amount, setAmount] = useState(1)
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
+  const optionsList=
+  currencyList.map((e)=>({
+    value: e,
+    label: e.toUpperCase(),
+  }))
 
   let toAmount, fromAmount
   if(amountInFromCurrency){
@@ -40,11 +45,9 @@ function App() {
         .then(response=>response.json())
         .then(data=>{
           setExchangeRate(data[fromCurrency][toCurrency])
-          console.log(toCurrency)
        })
     }
   },[fromCurrency,toCurrency])
-
   function handleFromAmountChange(e){
     setAmount(e.target.value)
     setAmountInFromCurrency(true)
@@ -53,27 +56,32 @@ function App() {
     setAmount(e.target.value)
     setAmountInFromCurrency(false)
   }
-
+  function handleSwapCurrencies(e){
+    let temp = fromCurrency
+    setFromCurrency(toCurrency)
+    setToCurrency(temp)
+  }
   return (
     <>
       <h1>Crypto/Currency Converter</h1>
       {/*First Currency */}
-        <CurrencyItem
-        currencyList={currencyList}
-        selectedCurrency={fromCurrency}
-        onChangeCurrency={e=>setFromCurrency(e.target.value)}
+      <CurrencyItem
+        optionsList={optionsList}
+        selectedCurrency={optionsList.find(option=>option.value===fromCurrency)}
+        onChangeCurrency={e=>setFromCurrency(e.value)}
         onChangeAmount={handleFromAmountChange}
         amount={fromAmount}
       />
       <div className="equals">=</div>
       {/*Second Currency */}
-        <CurrencyItem
-        currencyList={currencyList}
-        selectedCurrency={toCurrency}
-        onChangeCurrency={e=>setToCurrency(e.target.value)}
+      <CurrencyItem
+        optionsList={optionsList}
+        selectedCurrency={optionsList.find(option=>option.value===toCurrency)}
+        onChangeCurrency={e=>setToCurrency(e.value)}
         onChangeAmount={handleToAmountChange}
         amount={toAmount}
       />
+      <button onClick={handleSwapCurrencies}>Swap</button>
     </>
   );
 }
