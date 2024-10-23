@@ -25,6 +25,7 @@ function App() {
     fetch(`${CURRENCY_URL}${BASE_CURRENCY}.json`)
       .then(response=>response.json())
       .then(data=>{
+        //Takes the current type of currency (initialized to CAD)
         let currentCurrency = Object.keys(data)[1]
         const firstCurrency = Object.keys(data[currentCurrency])[0]
         setCurrencyList([...Object.keys(data[currentCurrency])])
