@@ -84,25 +84,27 @@ function App() {
   }
   return (
     <>
-      <h1>Crypto/Currency Converter</h1>
-      {/*From Currency*/}
-      <CurrencyItem
-        optionsList={optionsList}
-        selectedCurrency={optionsList.find(option=>option.value===fromCurrency)}
-        onChangeCurrency={e=>setFromCurrency(e.value)}
-        onChangeAmount={handleFromAmountChange}
-        amount={fromAmount}
-      />
-      <div className="equals">=</div>
-      {/*To Currency*/}
-      <CurrencyItem
-        optionsList={optionsList}
-        selectedCurrency={optionsList.find(option=>option.value===toCurrency)}
-        onChangeCurrency={e=>setToCurrency(e.value)}
-        onChangeAmount={handleToAmountChange}
-        amount={toAmount}
-      />
-      <button onClick={handleSwapCurrencies}>Swap</button>
+      <div className='converter'>
+        <h1>Crypto/Currency Converter</h1>
+        {/*From Currency*/}
+        <CurrencyItem
+          optionsList={optionsList}
+          selectedCurrency={optionsList.find(option=>option.value===fromCurrency)}
+          onChangeCurrency={e=>setFromCurrency(e.value)}
+          onChangeAmount={handleFromAmountChange}
+          amount={fromAmount}
+        />
+        <div className="equals">=</div>
+        {/*To Currency*/}
+        <CurrencyItem
+          optionsList={optionsList}
+          selectedCurrency={optionsList.find(option=>option.value===toCurrency)}
+          onChangeCurrency={e=>setToCurrency(e.value)}
+          onChangeAmount={handleToAmountChange}
+          amount={toAmount}
+        />
+        <button onClick={handleSwapCurrencies}>Swap</button>
+      </div>
     </>
   );
 }
