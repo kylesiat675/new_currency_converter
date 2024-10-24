@@ -5,11 +5,11 @@ export default function CurrencyItem(props) {
 const{optionsList, selectedCurrency, onChangeCurrency, onChangeAmount, amount} = props
 return (
     <div className="input-select-container">
-        <input 
-          type="number" 
-          placeholder="0" 
-          className="input" 
-          value={amount || 1} 
+        <input
+          type="number"
+          placeholder="0"
+          className="input"
+          value={amount}
           onChange={onChangeAmount}
         />
         <Select

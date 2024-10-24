@@ -19,7 +19,7 @@ function App() {
   const [fromCurrency, setFromCurrency] = useState()
   const [toCurrency, setToCurrency] = useState()
   const [exchangeRate, setExchangeRate] = useState()
-  const [amount, setAmount] = useState(1)
+  const [amount, setAmount] = useState(0)
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
 
   //Map out the data taken from currencyList into react-select formatting (value: a, label: b)
