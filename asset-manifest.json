@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kylesiat675/currency-and-crypto-converter/static/css/main.2b9ceb55.css",
+    "main.js": "/kylesiat675/currency-and-crypto-converter/static/js/main.6bf92e96.js",
+    "index.html": "/kylesiat675/currency-and-crypto-converter/index.html",
+    "main.2b9ceb55.css.map": "/kylesiat675/currency-and-crypto-converter/static/css/main.2b9ceb55.css.map",
+    "main.6bf92e96.js.map": "/kylesiat675/currency-and-crypto-converter/static/js/main.6bf92e96.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2b9ceb55.css",
+    "static/js/main.6bf92e96.js"
+  ]
+}
