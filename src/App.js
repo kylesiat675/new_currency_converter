@@ -10,10 +10,10 @@ const BASE_CURRENCY = 'cad'
 const today = new Date();
 const year = today.getFullYear();
 const month = (today.getMonth()+1) >= 10 ? today.getMonth()+1: '0'+(today.getMonth()+1);
-const day = today.getDate>=10 ? today.getDate() : '0'+today.getDate();
+const day = today.getDate()>=10 ? today.getDate() : '0'+today.getDate();
 const currentDate = year+'-'+month+'-'+day;
 const CURRENCY_URL = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@'+currentDate+'/v1/currencies/'
-console.log(CURRENCY_URL)
+
 
 function App() {
   const [currencyList, setCurrencyList] = useState([])
